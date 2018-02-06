@@ -21,33 +21,39 @@ public class Main {
 //        GetterTextFile.GetDataFile(pt);
         Scanner in = new Scanner(System.in);
         int num;
+        Boolean flag = true;
+        while (flag) {
         System.out.println("Введите номер оперции: \n1 ввод данных, \n2 вывод данных по школе, \n3 правка оценок в журнале");
-        num = in.nextInt();
-        System.out.println(num);
-        String str;
-        switch (num) {
-            case 1:
-                inputData();
-                break;
-            case 2:
-                str = "output";
-                break;
-            case 3:
-                str = "marks";
-                break;
+            num = in.nextInt();
+            System.out.println(num);
+              switch (num) {
+                case 1:
+                    inputDate();
+                    break;
+                case 2:
+                    outputDate();
+                    break;
+                case 3:
+                    correctedMarks();
+                    break;
+                default:
+                    flag = false;
+                    break;
+            }
         }
     }
 
-    private static void inputData() {
+    private static void inputDate() {
         Scanner in = new Scanner(System.in);
         int num;
-        System.out.println("Введите номер оперции: \n1 номер школы, \n2 учитель\n3 ученик\n4 предмет");
+        System.out.println("ВВОД ДАННЫХ:");
+        System.out.println("Введите номер оперции: \n1 учитель\n2 ученик\n3 предмет");
         num = in.nextInt();
         System.out.println(num);
         String str1;
         switch (num) {
             case 1:
-                str1 = "output";
+                inputPerson();
                 break;
             case 2:
                 str1 = "output";
@@ -55,10 +61,33 @@ public class Main {
             case 3:
                 str1 = "marks";
                 break;
-            case 4:
-                str1 = "subject";
+            default:
                 break;
         }
+
+    }
+
+    private static void inputPerson() {
+        Scanner in = new Scanner(System.in);
+        System.out.println("Введите Фамилию: ");
+        String surname = in.nextLine();
+        System.out.println("Введите Имя: ");
+        String name = in.nextLine();
+        System.out.println("Введите Отчество: ");
+        String patronymic = in.nextLine();
+        System.out.println("Номер класса: ");
+        int numClass = in.nextInt();
+        System.out.println("Литера класса: ");
+        String letterClass = in.nextLine();
+    }
+
+
+    private static void outputDate() {
+        System.out.println("OutputDate");
+    }
+
+    private static void correctedMarks() {
+        System.out.println("correctedMarks");
 
     }
 }
