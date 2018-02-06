@@ -23,7 +23,7 @@ public class Main {
         int num;
         Boolean flag = true;
         while (flag) {
-        System.out.println("Введите номер оперции: \n1 ввод данных, \n2 вывод данных по школе, \n3 правка оценок в журнале");
+        System.out.println("Введите номер операции: \n1 ввод данных, \n2 вывод данных по школе, \n3 правка оценок в журнале");
             num = in.nextInt();
             System.out.println(num);
               switch (num) {
@@ -47,7 +47,7 @@ public class Main {
         Scanner in = new Scanner(System.in);
         int num;
         System.out.println("ВВОД ДАННЫХ:");
-        System.out.println("Введите номер оперции: \n1 учитель\n2 ученик\n3 предмет");
+        System.out.println("Введите номер операции: \n1 учитель\n2 ученик\n3 предмет");
         num = in.nextInt();
         System.out.println(num);
         String str1;
