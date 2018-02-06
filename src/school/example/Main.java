@@ -75,13 +75,13 @@ public class Main {
         Scanner in = new Scanner(System.in);
         System.out.println("Введите Фамилию: ");
         String surname = in.nextLine();
-        System.out.println("Введите Имя: ");
+        System.out.println("Введите Имя:");
         String name = in.nextLine();
-        System.out.println("Введите Отчество: ");
+        System.out.println("Введите Отчество:");
         String patronymic = in.nextLine();
-        System.out.println("Номер класса: ");
+        System.out.println("Номер класса:");
         int numClass = in.nextInt();
-        System.out.println("Литера класса: ");
+        System.out.println("Литера класса:");
         String letterClass = in.nextLine();
 
         MakePerson make = GetMakePerson ("Teacher");

@@ -35,7 +35,7 @@ public class Teacher implements Person {
         this.patronymic = patronymic;
     }
     public void ShowPerson() {
-        System.out.println("Teacher" + " " + name + " " + surname);
+        System.out.println("Teacher" + " " + name + " " + surname + " " + patronymic);
 
     }
 }
