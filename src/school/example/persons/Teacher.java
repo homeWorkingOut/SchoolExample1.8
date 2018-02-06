@@ -34,4 +34,8 @@ public class Teacher implements Person {
     public void setPatronymic(String patronymic) {
         this.patronymic = patronymic;
     }
+    public void ShowPerson() {
+        System.out.println("Teacher" + " " + name + " " + surname);
+
+    }
 }

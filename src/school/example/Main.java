@@ -1,6 +1,10 @@
 package school.example;
 
 import school.example.getterFile.GetterTextFile;
+import school.example.persons.GreatSchoolBoy;
+import school.example.persons.GreatTeacher;
+import school.example.persons.MakePerson;
+import school.example.persons.Person;
 import school.example.setterFile.SetterTextFile;
 
 import java.io.File;
@@ -79,6 +83,13 @@ public class Main {
         int numClass = in.nextInt();
         System.out.println("Литера класса: ");
         String letterClass = in.nextLine();
+
+        MakePerson make = GetMakePerson ("Teacher");
+        Person people = make.GreatPerson();
+        people.setName(name);
+        people.setPatronymic(surname);
+        people.setSurname(patronymic);
+        people.ShowPerson();
     }
 
 
@@ -90,4 +101,19 @@ public class Main {
         System.out.println("correctedMarks");
 
     }
+
+    public static MakePerson GetMakePerson(String make) {
+        if (make.equals("Teacher")) {
+            return new GreatTeacher();
+        } else if (make.equals("SchoolBoy")) {
+            return new GreatSchoolBoy();
+        }
+        throw new RuntimeException("Not " + make);
+    }
+
+//    public static MakeSubject  GetMakeSubject (String  make) {
+//        if (make.equals("Предмет")){
+//            return new SubjectMake();}
+//        throw new RuntimeException("Not " + make);
+//    }
 }

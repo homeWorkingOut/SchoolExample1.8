@@ -1,6 +1,6 @@
 package school.example.persons;
 
-public class SchoolBoy implements Person{
+public class SchoolBoy implements Person {
     private String name;
     private String surname;
     private String patronymic;
@@ -33,5 +33,9 @@ public class SchoolBoy implements Person{
     @Override
     public void setPatronymic(String patronymic) {
         this.patronymic = patronymic;
+    }
+    public void ShowPerson() {
+        System.out.println("SchoolBoy" + " " + name + " " + surname);
+
     }
 }
