@@ -79,9 +79,16 @@ public class Main {
         Person teacher = inputPerson("Teacher");
 
         System.out.println("Ученик");
-
-        inputPerson("SchoolBoy");
-
+        boolean flag = true;
+        while (flag) {
+            inputPerson("SchoolBoy");
+            System.out.println("Продолжить: (Y/N) ");
+            String answer = in.next();
+            if (answer == "N")
+            {
+                flag = false;
+            }
+        }
     }
 
     private static Person inputPerson(String role) {
