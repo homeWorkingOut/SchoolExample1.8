@@ -27,9 +27,9 @@ public class Main {
         int num;
         Boolean flag = true;
         while (flag) {
-        System.out.println("Введите номер операции: \n1 ввод данных, \n2 вывод данных по школе, \n3 правка оценок в журнале");
+        System.out.println("Введите номер операции: \n1 ввод данных, \n2 вывод данных по школе, \n3 правка оценок в журнале, \n4 выход");
             num = in.nextInt();
-            System.out.println(num);
+//            System.out.println(num);
               switch (num) {
                 case 1:
                     inputDate();
@@ -51,45 +51,55 @@ public class Main {
         Scanner in = new Scanner(System.in);
         int num;
         System.out.println("ВВОД ДАННЫХ:");
-        System.out.println("Введите номер операции: \n1 учитель\n2 ученик\n3 предмет");
+        System.out.println("Введите номер операции: \n1 Создать новый класс\n2 Создать предметы");
         num = in.nextInt();
-        System.out.println(num);
+//        System.out.println(num);
         String str1;
         switch (num) {
             case 1:
-                inputPerson();
+                makeSchollClas ();
                 break;
             case 2:
-                str1 = "output";
-                break;
-            case 3:
                 str1 = "marks";
                 break;
             default:
                 break;
+
         }
 
     }
 
-    private static void inputPerson() {
+    private static void makeSchollClas() {
         Scanner in = new Scanner(System.in);
-        System.out.println("Введите Фамилию: ");
-        String surname = in.nextLine();
-        System.out.println("Введите Имя:");
-        String name = in.nextLine();
-        System.out.println("Введите Отчество:");
-        String patronymic = in.nextLine();
         System.out.println("Номер класса:");
         int numClass = in.nextInt();
         System.out.println("Литера класса:");
-        String letterClass = in.nextLine();
+        String letterClass = in.next();
+        System.out.println("Классный руководитель");
+        Person teacher = inputPerson("Teacher");
 
-        MakePerson make = GetMakePerson ("Teacher");
+        System.out.println("Ученик");
+
+        inputPerson("SchoolBoy");
+
+    }
+
+    private static Person inputPerson(String role) {
+        Scanner in = new Scanner(System.in);
+        System.out.println("Введите Фамилию: ");
+        String surname = in.next();
+        System.out.println("Введите Имя:");
+        String name = in.next();
+        System.out.println("Введите Отчество:");
+        String patronymic = in.next();
+
+        MakePerson make = GetMakePerson (role);
         Person people = make.GreatPerson();
         people.setName(name);
         people.setPatronymic(surname);
         people.setSurname(patronymic);
         people.ShowPerson();
+        return  people;
     }
 
 
