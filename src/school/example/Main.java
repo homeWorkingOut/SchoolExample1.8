@@ -1,20 +1,20 @@
 package school.example;
 
-import school.example.getterFile.GetterTextFile;
 import school.example.persons.GreatSchoolBoy;
 import school.example.persons.GreatTeacher;
 import school.example.persons.MakePerson;
 import school.example.persons.Person;
-import school.example.setterFile.SetterTextFile;
+import school.example.school.ClassNumberLetter;
+import school.example.school.SchoolClass;
+import school.example.setterFile.PutSchoolDataFile;
 
-import java.io.File;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
-
-    public static void main(String[] args) {
+    public SchoolClass schoolClass;
+        public static void main(String[] args) {
         // write your code here
 //        String myJarPath = Main.class.getProtectionDomain().getCodeSource().getLocation().getPath();
 //        String dirPath = new File(myJarPath).getParent();
@@ -23,72 +23,82 @@ public class Main {
 //        System.out.println(pt);
 //        SetterTextFile.PutDataFile(pt);
 //        GetterTextFile.GetDataFile(pt);
+       List <SchoolClass> school = new ArrayList<>();
         Scanner in = new Scanner(System.in);
         int num;
         Boolean flag = true;
         while (flag) {
         System.out.println("Введите номер операции: \n1 ввод данных, \n2 вывод данных по школе, \n3 правка оценок в журнале, \n4 выход");
             num = in.nextInt();
-//            System.out.println(num);
               switch (num) {
                 case 1:
-                    inputDate();
+                    school.addAll(inputDate());
                     break;
                 case 2:
-                    outputDate();
+                    outputDate(school);
                     break;
                 case 3:
                     correctedMarks();
                     break;
                 default:
                     flag = false;
+                    putDataFile(school);
                     break;
             }
         }
     }
 
-    private static void inputDate() {
+    private static void putDataFile(List <SchoolClass> school) {
+        putDataFiles(school);
+    }
+
+    private static  List <SchoolClass> inputDate() {
+            // список классов
+        List <SchoolClass> school = new ArrayList<>();
         Scanner in = new Scanner(System.in);
         int num;
         System.out.println("ВВОД ДАННЫХ:");
         System.out.println("Введите номер операции: \n1 Создать новый класс\n2 Создать предметы");
         num = in.nextInt();
-//        System.out.println(num);
         String str1;
         switch (num) {
             case 1:
-                makeSchollClas ();
+                school.add(makeSchollClas ());
                 break;
             case 2:
                 str1 = "marks";
                 break;
             default:
                 break;
-
         }
-
+        return school;
     }
 
-    private static void makeSchollClas() {
+    private static SchoolClass makeSchollClas() {
         Scanner in = new Scanner(System.in);
         System.out.println("Номер класса:");
         int numClass = in.nextInt();
         System.out.println("Литера класса:");
         String letterClass = in.next();
+        ClassNumberLetter id = new ClassNumberLetter (numClass, letterClass);
         System.out.println("Классный руководитель");
         Person teacher = inputPerson("Teacher");
-
         System.out.println("Ученик");
         boolean flag = true;
+        List<Person> schoolBoys = new ArrayList<>();
         while (flag) {
-            inputPerson("SchoolBoy");
-            System.out.println("Продолжить: (Y/N) ");
+            Person child = inputPerson("SchoolBoy");
+            schoolBoys.add(child);
+            System.out.println("Продолжить: (Y/N)");
             String answer = in.next();
-            if (answer == "N")
+            System.out.println(answer);
+            if (answer.equals("N"))
             {
                 flag = false;
             }
         }
+        SchoolClass schoolClass = new SchoolClass(id, teacher, schoolBoys);
+        return schoolClass;
     }
 
     private static Person inputPerson(String role) {
@@ -110,8 +120,12 @@ public class Main {
     }
 
 
-    private static void outputDate() {
+    private static void outputDate(List <SchoolClass> school) {
         System.out.println("OutputDate");
+        for (int i = 0; i< school.size(); i++) {
+            SchoolClass classS = school.get(i);
+            classS.SchoolClassShow();
+        }
     }
 
     private static void correctedMarks() {

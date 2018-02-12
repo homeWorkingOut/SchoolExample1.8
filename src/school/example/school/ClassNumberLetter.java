@@ -1,14 +1,19 @@
 package school.example.school;
 
 public class ClassNumberLetter {
-    private String classNumber;
+    private int classNumber;
     private String classLetter;
 
-    public String getClassNumber() {
+    public ClassNumberLetter(int classNumber, String classLetter) {
+        this.classNumber = classNumber;
+        this.classLetter = classLetter;
+    }
+
+    public int getClassNumber() {
         return classNumber;
     }
 
-    public void setClassNumber(String classNumber) {
+    public void setClassNumber(int classNumber) {
         this.classNumber = classNumber;
     }
 
