@@ -8,6 +8,9 @@ import school.example.school.ClassNumberLetter;
 import school.example.school.SchoolClass;
 import school.example.setterFile.PutSchoolDataFile;
 
+import java.io.File;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -19,7 +22,7 @@ public class Main {
 //        String myJarPath = Main.class.getProtectionDomain().getCodeSource().getLocation().getPath();
 //        String dirPath = new File(myJarPath).getParent();
 //        System.out.println(dirPath);
-//        Path pt = Paths.get (dirPath, "test.txt");
+//        public Path pt = Paths.get (dirPath, "test.txt");
 //        System.out.println(pt);
 //        SetterTextFile.PutDataFile(pt);
 //        GetterTextFile.GetDataFile(pt);
@@ -49,7 +52,7 @@ public class Main {
     }
 
     private static void putDataFile(List <SchoolClass> school) {
-        putDataFiles(school);
+        PutSchoolDataFile.PutDataFiles(school);
     }
 
     private static  List <SchoolClass> inputDate() {

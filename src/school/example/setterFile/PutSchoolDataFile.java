@@ -7,9 +7,7 @@ import java.util.Iterator;
 import java.util.List;
 
 public class PutSchoolDataFile {
-    private List<SchoolClass> school;
-
-    static void PutDataFiles (List<SchoolClass> school){
+    public static void PutDataFiles (List<SchoolClass> school) {
         for (int i = 0; i< school.size(); i++){
             SchoolClass classS = school.get(i);
             System.out.println(classS.getId().getClassNumber());
